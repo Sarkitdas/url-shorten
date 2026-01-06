@@ -95,8 +95,6 @@ Atomic Updates: Click counts are incremented using MongoDB's $inc operator to pr
 ---
 
 
-
-
 ## Authors
 - [Sarkitdas](https://github.com/Sarkitdas)
 🌐 **Portfolio:** [URL-Shorten.com](https://url-shorten-hazel.vercel.app/)
