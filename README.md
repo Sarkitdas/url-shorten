@@ -2,7 +2,10 @@
 
 A modern, secure, and high-performance URL shortening service built with **Next.js 16 (App Router)**, **MongoDB**, and **JWT Authentication**. This project features a robust redirection engine, click tracking, and a protected user dashboard.
 
+## Authors
 
+[Sarkit's HUB](https://github.com/Sarkitdas)  
+🌐 **Portfolio:** [URL-Shorten.com](https://url-shorten-hazel.vercel.app/)
 
 ---
 
@@ -95,9 +98,7 @@ Atomic Updates: Click counts are incremented using MongoDB's $inc operator to pr
 ---
 
 
-## Authors
-- [Sarkitdas](https://github.com/Sarkitdas)
-🌐 **Portfolio:** [URL-Shorten.com](https://url-shorten-hazel.vercel.app/)
+
 
 
 ---
