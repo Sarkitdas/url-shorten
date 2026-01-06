@@ -1,163 +1,125 @@
-🚀 Features
+# 🚀 URL Shortener - Full Stack Next.js Application
 
-🔐 Signup / Login / Logout
-🍪 JWT auth with HttpOnly cookies
-✂️ Short URL generation
-🔁 Automatic redirection via short codes
-📊 Click tracking
-🧭 Protected dashboard (middleware)
-🗂️ Clean, scalable structure
-⚡ Fast builds (Turbopack)
-🧱 Tech Stack
+A modern, secure, and high-performance URL shortening service built with **Next.js 16 (App Router)**, **MongoDB**, and **JWT Authentication**. This project features a robust redirection engine, click tracking, and a protected user dashboard.
 
-Frontend: Next.js 16+ (App Router)
-Backend: Next.js API Routes
-Database: MongoDB + Mongoose
-Auth: JWT, Cookies
-Utilities: bcrypt, nanoid
-Styling: CSS / Tailwind-ready
 
-📁 Project Structure
+
+---
+
+## ✨ Features
+
+* 🔐 **Secure Auth**: Signup, Login, and Logout functionality.
+* 🍪 **JWT via HttpOnly Cookies**: Enhanced security against XSS attacks.
+* ✂️ **Short URL Generation**: Create concise, shareable links instantly.
+* 🔁 **Automatic Redirection**: High-speed redirection via dynamic short codes.
+* 📊 **Analytics**: Track total clicks for every URL generated.
+* 🧭 **Protected Dashboard**: Middleware-guarded routes for user management.
+* ⚡ **Turbopack**: Optimized for lightning-fast development builds.
+* 🗂️ **Clean Architecture**: Scalable folder structure following Next.js best practices.
+
+---
+
+## 🧱 Tech Stack
+
+| Layer | Technology |
+| :--- | :--- |
+| **Frontend** | Next.js 15/16+ (App Router), Tailwind CSS |
+| **Backend** | Next.js API Routes (Serverless) |
+| **Database** | MongoDB with Mongoose ODM |
+| **Security** | JWT, bcrypt, HttpOnly Cookies |
+| **Utilities** | nanoid, Middleware |
+
+---
+
+## 📁 Project Structure
+
+```text
 url-shorten/
-│
-├── public/
 ├── src/
-│   ├── app/
-│   │   ├── api/
-│   │   │   ├── auth/
-│   │   │   ├── login/
-│   │   │   ├── logout/
-│   │   │   ├── shorten/
-│   │   │   ├── signup/
-│   │   │   └── urls/
-│   │   │
-│   │   ├── components/
-│   │   │   ├── Dashboard/
-│   │   │   ├── Headers/
-│   │   │   ├── Homepage/
-│   │   │   ├── Login/
-│   │   │   ├── Notification/
-│   │   │   ├── Signup/
-│   │   │   └── Subscription/
-│   │   │
-│   │   ├── shorten/
-│   │   │   └── [shortCode]/page.jsx
-│   │   │
-│   │   ├── globals.css
-│   │   ├── layout.js
-│   │   └── page.js
-│   │
-│   ├── config/
-│   │   └── dbclient.js
-│   │
-│   ├── models/
-│   │   ├── User.js
-│   │   └── Url.js
-│   │
-│   ├── utility/
-│   │   ├── JWT_helper.js
-│   │   ├── Middleware_utility.js
-│   │   └── Token_cookies.js
-│   │
-│   └── middleware.js
-│
-├── .env.local
-├── package.json
-├── next.config.mjs
-└── README.md
+│   ├── app/                # App Router (Pages & API)
+│   │   ├── api/            # Backend Endpoints
+│   │   ├── shorten/        # Dynamic Redirection Logic
+│   │   └── components/     # UI Components (Dashboard, Auth, etc.)
+│   ├── config/             # Database Connection
+│   ├── models/             # Mongoose Schemas (User, Url)
+│   ├── utility/            # JWT & Cookie Helpers
+│   └── middleware.js       # Route Guarding
+├── public/                 # Static Assets
+└── .env.local              # Environment Variables
+
 
 ⚙️ Environment Variables
+Create a .env.local file in the root directory and add the following:
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_ultra_secure_secret_key
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
 
-Create .env.local in the root:
 
-MONGODB_URI=**************
-JWT_SECRET=*****************
-NEXT_PUBLIC_BASE_URL=***********
-
-📦 Installation
-git clone https://github.com/Sarkitdas/url-shorten.git
+1. Installation & Setup
+Clone the repository
+git clone [https://github.com/Sarkitdas/url-shorten.git](https://github.com/Sarkitdas/url-shorten.git)
 cd url-shorten
+
+2. Install dependencies
 npm install
+
+3. Run the development server
 npm run dev
+Open http://localhost:3000 to see the result.
 
+🔌 API Documentation
+Authentication
+POST /api/signup – Register a new account.
 
-Open: http://localhost:3000
+POST /api/login – Authenticate and receive an HttpOnly cookie.
 
-🔌 API Endpoints
+POST /api/logout – Clear authentication cookies.
 
-🔐 Auth >>>>>>>>>>
-POST /api/signup – Register
-POST /api/login – Login (sets JWT cookie)
-POST /api/logout – Logout
-GET /api/auth – Verify auth
+GET /api/auth – Verify current session status.
 
-✂️ URLs>>>>>>>>>>
-POST /api/shorten – Create short URL
-GET /api/urls – Get user URLs
+URL Management
+POST /api/shorten – Create a new short URL (Requires Auth).
 
-🔁 Short URL Redirect >>>>>>>>>>
-File: src/app/shorten/[shortCode]/page.jsx
-Flow:
-Read shortCode
-Find URL
-Increment clicks
-Redirect to original URL
-Handle invalid codes
+GET /api/urls – Fetch all URLs belonging to the logged-in user.
 
-🧩 Components >>>>>>>>>>
-Dashboard: User URLs & analytics (protected)
-Headers: Navigation & auth-aware UI
-Homepage: Landing page
-Login / Signup: Auth forms
-Notification: Toasts/alerts
-Subscription: Pricing UI (future-ready)
+🛡️ Security Implementation
+Password Hashing: Uses bcrypt for one-way encryption of user credentials.
 
-🧰 Utilities >>>>>>>>>>
-JWT_helper.js: Sign & verify JWT
-Token_cookies.js: Set/read/clear HttpOnly cookies
-Middleware_utility.js: Route protection helpers
+Secure Cookies: JWTs are stored in HttpOnly cookies, making them inaccessible to client-side scripts.
 
-🗄️ URL Model >>>>>>>>>>
-File: src/models/Url.js
-Fields:
-longUrl – Original URL
-shortCode – Unique ID
-userId – Owner
-clicks – Counter
-createdAt – Timestamp
+Route Protection: Next.js Middleware intercepts requests to /dashboard and /api/shorten to ensure the user is authenticated.
 
-🛡️ Security >>>>>>>>>>
-HttpOnly cookies
-bcrypt hashing
-JWT verification
-Protected routes
-Atomic click updates
+Atomic Updates: Click counts are incremented using MongoDB's $inc operator to prevent race conditions.
 
-🧪 Scripts >>>>>>>>>>
-npm run dev
-npm run build
-npm run start
-npm run lint
+🚀 Roadmap
+[ ] Custom URL Aliases (slugs)
 
-🚀 Roadmap >>>>>>>>>>
-Custom aliases
-Expiring links
-QR codes
-Advanced analytics
-Rate limiting
-Admin panel
+[ ] Link Expiration (Self-destructing links)
 
-🤝 Contributing >>>>>>>>>>
-Fork
-Create branch
-Commit
-Open PR
+[ ] QR Code generation for every link
+
+[ ] Advanced Geo-analytics (Track clicks by country)
+
+[ ] Dark Mode support
+
+🤝 Contributing
+Contributions are welcome!
+
+Fork the Project.
+
+Create your Feature Branch (git checkout -b feature/AmazingFeature).
+
+Commit your Changes (git commit -m 'Add some AmazingFeature').
+
+Push to the Branch (git push origin feature/AmazingFeature).
+
+Open a Pull Request.
 
 📄 License
-|
-MIT License
+Distributed under the MIT License. See LICENSE for more information.
 
-👨‍💻 Author
-|
-Saikat Das
-GitHub: https://github.com/Sarkitdas
+## 👨‍💻 Author
+
+**Saikat Das**
+* GitHub: [@Sarkitdas](https://github.com/Sarkitdas)
+* Portfolio: [URL-Shorten.com](https://url-shorten-hazel.vercel.app/)
