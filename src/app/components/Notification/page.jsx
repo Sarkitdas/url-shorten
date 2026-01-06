@@ -8,31 +8,26 @@ export default function PremiumSubscriptionPage() {
   const router = useRouter();
 
   useEffect(() => {
-  async function fetchUrls() {
-    try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/urls`, {
-        cache: "no-store",
-        credentials: "include", // important if your token is HttpOnly cookie
-      });
-      const data = await res.json();
-      console.log("API Response:", data); // should be array of URLs
+    async function fetchUrls() {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/urls`, {
+          cache: "no-store",
+        });
+        const data = await res.json();
+        const urlsArray = Array.isArray(data) ? data : [];
+        setUrlsCount(urlsArray.length);
 
-      const urlsArray = Array.isArray(data) ? data : [];
-      setUrlsCount(urlsArray.length);
-
-      if (urlsArray.length >= 100) {
-        console.log("🎉 User reached 100 URLs!");
+        // Optional alert
+        if (urlsArray.length >= 100) {
+          console.log("🎉 User reached 100 URLs!");
+        }
+      } catch (err) {
+        console.error("Failed to fetch URLs:", err);
       }
-    } catch (err) {
-      console.error("Failed to fetch URLs:", err);
     }
-  }
 
-  fetchUrls();
-}, []);
-
-
-
+    fetchUrls();
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-purple-500 to-pink-500 flex flex-col items-center justify-center text-white p-4">
