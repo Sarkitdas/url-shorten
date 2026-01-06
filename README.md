@@ -73,7 +73,6 @@ POST /api/signup – Register a new account.
 POST /api/login – Authenticate and receive an HttpOnly cookie.
 POST /api/logout – Clear authentication cookies.
 GET /api/auth – Verify current session status.
-
 2. URL Management
 POST /api/shorten – Create a new short URL (Requires Auth).
 GET /api/urls – Fetch all URLs belonging to the logged-in user.
