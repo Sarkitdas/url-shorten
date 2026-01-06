@@ -34,7 +34,7 @@ export async function POST(req) {
 
     // Count the user's URLs first
     const existingUrls = await Url.findMany({ email });
-    if (existingUrls.length >= 3) {
+    if (existingUrls.length >= 5) {
       return NextResponse.json(
         { error: "You have reached the maximum of 100 URLs" },
         { status: 403 }
