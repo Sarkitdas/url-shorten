@@ -68,51 +68,36 @@ npm run dev
 Open http://localhost:3000 to see the result.
 
 🔌 API Documentation
-Authentication
+1. Authentication
 POST /api/signup – Register a new account.
-
 POST /api/login – Authenticate and receive an HttpOnly cookie.
-
 POST /api/logout – Clear authentication cookies.
-
 GET /api/auth – Verify current session status.
 
-URL Management
+2. URL Management
 POST /api/shorten – Create a new short URL (Requires Auth).
-
 GET /api/urls – Fetch all URLs belonging to the logged-in user.
 
 🛡️ Security Implementation
 Password Hashing: Uses bcrypt for one-way encryption of user credentials.
-
 Secure Cookies: JWTs are stored in HttpOnly cookies, making them inaccessible to client-side scripts.
-
 Route Protection: Next.js Middleware intercepts requests to /dashboard and /api/shorten to ensure the user is authenticated.
-
 Atomic Updates: Click counts are incremented using MongoDB's $inc operator to prevent race conditions.
 
 🚀 Roadmap
 [ ] Custom URL Aliases (slugs)
-
 [ ] Link Expiration (Self-destructing links)
-
 [ ] QR Code generation for every link
-
 [ ] Advanced Geo-analytics (Track clicks by country)
-
 [ ] Dark Mode support
 
 🤝 Contributing
 Contributions are welcome!
 
 Fork the Project.
-
 Create your Feature Branch (git checkout -b feature/AmazingFeature).
-
 Commit your Changes (git commit -m 'Add some AmazingFeature').
-
 Push to the Branch (git push origin feature/AmazingFeature).
-
 Open a Pull Request.
 
 📄 License
