@@ -65,13 +65,17 @@ export default function Homepage() {
         {error && <p className="text-red-500">{error}</p>}
 
         {shortUrl && (
-          <div className="mt-4 p-4 bg-white/20 rounded-xl flex justify-between items-center">
-            <span className="text-white">{shortUrl}</span>
-            <button onClick={handleCopy} className="px-4 py-2 bg-indigo-500 rounded-xl text-white">
-              {copied ? 'Copied!' : 'Copy'}
-            </button>
-          </div>
-        )}
+  <div className="mt-4 p-4 bg-white/20 rounded-xl flex flex-col sm:flex-row sm:justify-between sm:items-center">
+    <span className="text-white break-all mb-2 sm:mb-0">{shortUrl}</span>
+    <button 
+      onClick={handleCopy} 
+      className="px-4 py-2 bg-indigo-500 rounded-xl text-white w-full sm:w-auto"
+    >
+      {copied ? 'Copied!' : 'Copy'}
+    </button>
+  </div>
+)}
+
       </div>
     </div>
   )
