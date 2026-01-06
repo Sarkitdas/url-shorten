@@ -90,20 +90,25 @@ Atomic Updates: Click counts are incremented using MongoDB's $inc operator to pr
 [ ] Advanced Geo-analytics (Track clicks by country)
 [ ] Dark Mode support
 
-🤝 Contributing
-Contributions are welcome!
 
-Fork the Project.
-Create your Feature Branch (git checkout -b feature/AmazingFeature).
-Commit your Changes (git commit -m 'Add some AmazingFeature').
-Push to the Branch (git push origin feature/AmazingFeature).
-Open a Pull Request.
-
-📄 License
-Distributed under the MIT License. See LICENSE for more information.
 
 ## 👨‍💻 Author
 
-**Saikat Das**
-* GitHub: [@Sarkitdas](https://github.com/Sarkitdas)
-* Portfolio: [URL-Shorten.com](https://url-shorten-hazel.vercel.app/)
+**Saikat Das** [![GitHub](https://img.shields.io/badge/GitHub-Sarkitdas-181717?style=flat&logo=github)](https://github.com/Sarkitdas)  
+🌐 **Portfolio:** [URL-Shorten.com](https://url-shorten-hazel.vercel.app/)
+
+---
+
+## 🤝 Contributing
+
+Contributions are the backbone of the open-source community. To contribute:
+
+1. **Fork** the Project
+2. Create your **Feature Branch** (`git checkout -b feature/AmazingFeature`)
+3. **Commit** your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a **Pull Request**
+
+## 📄 License
+
+Distributed under the **MIT License**. See `LICENSE` for more information.
