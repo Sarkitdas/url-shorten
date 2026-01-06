@@ -95,10 +95,13 @@ Atomic Updates: Click counts are incremented using MongoDB's $inc operator to pr
 ---
 
 
-## 👨‍💻 Author
 
-**Saikat Das**  
-[![GitHub](https://img.shields.io/badge/GitHub-Sarkitdas-181717?style=flat&logo=github)](https://github.com/Sarkitdas)  
+
+## Authors
+
+- [Sarkitdas](https://github.com/Sarkitdas)
+
+
 
 🌐 **Portfolio:** [URL-Shorten.com](https://url-shorten-hazel.vercel.app/)
 
