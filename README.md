@@ -94,13 +94,6 @@ Atomic Updates: Click counts are incremented using MongoDB's $inc operator to pr
 [ ] Dark Mode support
 
 
-
----
-
-
-
-
-
 ---
 
 ## 🤝 Contributing
