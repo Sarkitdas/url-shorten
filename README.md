@@ -92,6 +92,8 @@ Atomic Updates: Click counts are incremented using MongoDB's $inc operator to pr
 
 
 
+---
+
 ## 👨‍💻 Author
 
 **Saikat Das** [![GitHub](https://img.shields.io/badge/GitHub-Sarkitdas-181717?style=flat&logo=github)](https://github.com/Sarkitdas)  
@@ -112,3 +114,4 @@ Contributions are the backbone of the open-source community. To contribute:
 ## 📄 License
 
 Distributed under the **MIT License**. See `LICENSE` for more information.
+
