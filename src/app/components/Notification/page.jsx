@@ -12,11 +12,12 @@ export default function PremiumSubscriptionPage() {
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/urls`, {
         cache: "no-store",
+        credentials: "include", // important if your token is HttpOnly cookie
       });
       const data = await res.json();
-      console.log("API Response:", data);
+      console.log("API Response:", data); // should be array of URLs
 
-      const urlsArray = Array.isArray(data.urls) ? data.urls : [];
+      const urlsArray = Array.isArray(data) ? data : [];
       setUrlsCount(urlsArray.length);
 
       if (urlsArray.length >= 100) {
@@ -29,6 +30,7 @@ export default function PremiumSubscriptionPage() {
 
   fetchUrls();
 }, []);
+
 
 
 
