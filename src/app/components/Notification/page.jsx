@@ -14,8 +14,8 @@ export default function PremiumSubscriptionPage() {
         cache: "no-store",
       });
       const data = await res.json();
+      console.log("API Response:", data);
 
-      // Adjust this according to your API structure
       const urlsArray = Array.isArray(data.urls) ? data.urls : [];
       setUrlsCount(urlsArray.length);
 
@@ -29,6 +29,7 @@ export default function PremiumSubscriptionPage() {
 
   fetchUrls();
 }, []);
+
 
 
   return (
